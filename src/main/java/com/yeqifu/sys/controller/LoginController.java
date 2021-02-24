@@ -25,7 +25,6 @@ import java.util.Date;
  * 用户登陆控制器
  */
 @Controller
-@RequestMapping("login")
 public class LoginController {
 
     @Autowired
@@ -35,9 +34,10 @@ public class LoginController {
     private ILogInfoService logInfoService;
 
     /**
-     * 跳转到登陆页面
+     *
+     * @return
      */
-    @RequestMapping("toLogin")
+    @RequestMapping("/tologin")
     public String toLogin(){
         return "system/main/login";
     }
@@ -47,7 +47,7 @@ public class LoginController {
      * @param userVo
      * @return
      */
-    @RequestMapping("login")
+    @RequestMapping("/login")
     public String login(UserVo userVo,Model model){
     String code = WebUtils.getHttpSession().getAttribute("code").toString();
         if (userVo.getCode().equals(code)){
@@ -64,7 +64,7 @@ public class LoginController {
                 logInfoVo.setLoginip(WebUtils.getHttpServletRequest().getRemoteAddr());
                 logInfoService.addLogInfo(logInfoVo);
 
-                return "system/main/index";
+                return "redirect:/";
             }else {
                 model.addAttribute("error", SysConstast.USER_LOGIN_ERROR_MSG);
                 return "system/main/login";
@@ -82,7 +82,7 @@ public class LoginController {
      * @param session
      * @throws IOException
      */
-    @RequestMapping("getCode")
+    @RequestMapping("/getCode")
     public void getCode(HttpServletResponse response, HttpSession session) throws IOException{
         //定义图形验证码的长和宽
         LineCaptcha lineCaptcha = CaptchaUtil.createLineCaptcha(116, 36,4,5);

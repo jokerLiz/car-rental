@@ -43,5 +43,12 @@
 
 	<!-- 配置静态文件放行 -->
 	<mvc:default-servlet-handler />
+	<!--  拦截器	-->
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/"/>
+			<bean class="com.yeqifu.sys.interceptor.LoginInterceptor"/>
+		</mvc:interceptor>
+	</mvc:interceptors>
 
 </beans>

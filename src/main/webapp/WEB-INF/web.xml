@@ -89,6 +89,10 @@
     <filter-name>WebStatFilter</filter-name>
     <servlet-name>StatViewServlet</servlet-name>
   </filter-mapping>
+  
+<!--  <welcome-file-list>-->
+<!--    <welcome-file>/view/index.jsp</welcome-file>-->
+<!--  </welcome-file-list>-->
 
 
 </web-app>

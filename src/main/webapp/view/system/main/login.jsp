@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="${yeqifu}/static/css/public.css" media="all" />
 </head>
 <body class="loginBody">
-<form class="layui-form" id="loginFrm" method="post" action="${yeqifu}/login/login.action">
+<form class="layui-form" id="loginFrm" method="post" action="${yeqifu}/login">
     <div class="login_face"><img src="${yeqifu}/static/images/face.jpg" class="userAvatar"></div>
     <div class="layui-form-item input-item">
         <label for="loginname">用户名</label>
@@ -29,7 +29,7 @@
     <div class="layui-form-item input-item" id="imgCode">
         <label for="code">验证码</label>
         <input type="text" placeholder="请输入验证码" autocomplete="off" name="code" id="code" class="layui-input">
-        <img src="${yeqifu}/login/getCode.action" onclick="this.src=this.src+'?'">
+        <img src="${yeqifu}/getCode" onclick="this.src=this.src+'?'">
     </div>
     <div class="layui-form-item">
         <button class="layui-btn layui-block" lay-filter="login" lay-submit>登录</button>
